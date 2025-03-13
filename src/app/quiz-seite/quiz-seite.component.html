@@ -1,0 +1,11 @@
+<div *ngIf="pokemonService.pokemon()" class="center-container">
+    <h1>{{ "Wie heißt das Pokemon?" }}</h1>
+
+    <img [src]="pokemonService.pokemon().sprites.front_default">
+
+    <p>{{this.pokemonNamen[0].toString()}}</p>
+ 
+    <p>{{this.pokemonNamen[1]}}</p>
+
+    <p>{{this.pokemonNamen[2]}}</p>
+  </div>

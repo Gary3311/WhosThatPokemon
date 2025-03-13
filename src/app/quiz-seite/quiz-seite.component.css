@@ -1,0 +1,7 @@
+.center-container {
+    display: flex;
+    flex-direction: column; /* Stellt sicher, dass jedes Element untereinander angezeigt wird */
+    justify-content: center; /* Zentriert vertikal */
+    align-items: center; /* Zentriert horizontal */
+    height: 100vh; /* Falls du die volle Bildschirmhöhe brauchst, kannst du das aktivieren */
+}
