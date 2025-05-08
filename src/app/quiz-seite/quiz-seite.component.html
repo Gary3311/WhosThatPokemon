@@ -1,11 +1,21 @@
 <div *ngIf="pokemonService.pokemon()" class="center-container">
-    <h1>{{ "Wie heißt das Pokemon?" }}</h1>
+  <h1>Wie heißt das Pokémon?</h1>
 
-    <img [src]="pokemonService.pokemon().sprites.front_default">
+  <img [src]="pokemonService.pokemon().sprites.front_shiny"> <!-- front_shiny für shiny variante -->
 
-    <p>{{this.pokemonNamen[0].toString()}}</p>
- 
-    <p>{{this.pokemonNamen[1]}}</p>
-
-    <p>{{this.pokemonNamen[2]}}</p>
+  <div class="button-container">
+    <div *ngFor="let option of antwortMoeglichkeiten">
+      <button (click)="antwortAuswaehlen(option)">
+        {{ option.name }}
+      </button>
+    </div>
   </div>
+
+  <p *ngIf="antwortGegeben">
+    {{ istAntwortRichtig ? 'Richtig!' : 'Falsch!' }}
+  </p>
+
+  <button *ngIf="antwortGegeben" (click)="naechsteFrage()">
+    Nächste Frage
+  </button>
+</div>
