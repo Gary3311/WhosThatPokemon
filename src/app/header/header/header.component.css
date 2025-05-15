@@ -1,0 +1,104 @@
+/* Grundstil für die Seite */
+body {
+  background-color: #ffd5ad;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+/* Header-Bereich */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  height: 130px;
+  background-color: #FE733C;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.title {
+  font-size: 60px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* Willkommensnachricht */
+.welcomeMessage {
+  margin-top: 60px;
+}
+
+.welcomeMessage h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #ff6600;
+}
+
+.welcomeMessage h2 {
+  font-size: 28px;
+  color: #ffffff;
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* Styling für die Tabs */
+.custom-tab-group {
+  background: #FFB269;
+  padding: 10px 0;
+  border-bottom: 2px solid #ff9900;
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* Tab-Label Standard */
+.custom-tab-group ::ng-deep .mat-tab-label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  padding: 12px 20px;
+  transition: all 0.3s ease;
+  border-radius: 6px 6px 0 0;
+}
+
+/* Hover-Effekt */
+.custom-tab-group ::ng-deep .mat-tab-label:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Aktiver Tab */
+.custom-tab-group ::ng-deep .mat-tab-label.mat-tab-label-active {
+  color: #ffffff;
+  background-color: #ffe3b9;
+}
+
+/* Farbliche Linie unter aktivem Tab */
+.custom-tab-group ::ng-deep .mat-ink-bar {
+  background-color: #ffffff;
+  height: 4px;
+}
+
+.quiz-content h2 {
+  font-size: 28px;
+  color: #ffffff;
+}
+
+.ranking-content h2 {
+  font-size: 28px;
+  color: #ffffff;
+}
