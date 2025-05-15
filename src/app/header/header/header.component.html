@@ -13,7 +13,8 @@
     <h1 class="title">Who’s that Pokémon?</h1>
   </div>
 
-  <mat-tab-group mat-stretch-tabs="true" mat-align-tabs="center" class="custom-tab-group">
+  <mat-tab-group mat-stretch-tabs="true" mat-align-tabs="center" class="custom-tab-group" [(selectedIndex)]="selectedTabIndex"
+  (selectedTabChange)="onTabChanged($event)">
     <mat-tab label="Homepage">
       <div class="welcomeMessage">
         <h1>Willkommen bei</h1>
@@ -33,22 +34,19 @@
     <table class="ranking-table" style="align-items: center;">
       <tr>
         <th>Platz</th>
-        <th></th>
         <th>Name</th>
-        <th></th>
         <th>Punkte</th>
       </tr>
       <tr *ngFor="let eintrag of ranking; let i = index">
         <td>{{ i + 1 }}</td>
-        <td></td>
         <td>{{ eintrag.name }}</td>
-        <td></td>
         <td>{{ eintrag.score }}</td>
       </tr>
     </table>
       </div>
     </mat-tab>
   </mat-tab-group>
+  <button mat-raised-button *ngIf="selectedTabIndex === 2" (click)="exportRankingAsXML()">Exportieren als XML</button>
 </body>
 
 </html>

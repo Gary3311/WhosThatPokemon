@@ -102,3 +102,17 @@ body {
   font-size: 28px;
   color: #ffffff;
 }
+
+.ranking-content table {
+  width: 100%;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+td {
+  padding: 10px;
+}
+
+th {
+  padding: 4px 8px;
+}

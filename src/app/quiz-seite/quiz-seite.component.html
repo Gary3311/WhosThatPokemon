@@ -8,7 +8,7 @@
 
   <div class="button-container">
     <div *ngFor="let option of antwortMoeglichkeiten">
-      <button (click)="antwortAuswaehlen(option)" *ngIf="!antwortGegeben">
+      <button mat-raised-button (click)="antwortAuswaehlen(option)" *ngIf="!antwortGegeben">
         {{ option.name }}
       </button>
     </div>
@@ -21,11 +21,11 @@
   </p>
 
   <div *ngIf="antwortGegeben">
-    <button *ngIf="istAntwortRichtig ; else restartBtn" (click)="naechsteFrage()">
+    <button mat-raised-button *ngIf="istAntwortRichtig ; else restartBtn" (click)="naechsteFrage()">
       Nächste Frage
     </button>
     <ng-template #restartBtn>
-      <button (click)="naechsteFrage()">
+      <button mat-raised-button (click)="naechsteFrage()">
         Neu starten
       </button>
     </ng-template>

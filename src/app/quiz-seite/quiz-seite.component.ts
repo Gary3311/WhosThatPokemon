@@ -1,10 +1,11 @@
 import { Component, EventEmitter, OnInit, Output, signal } from '@angular/core';
 import { PokemonService } from '../services/pokemon.service';
 import { NgFor, NgIf } from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-quiz-seite',
-  imports: [NgIf, NgFor],
+  imports: [NgIf, NgFor, MatButtonModule],
   templateUrl: './quiz-seite.component.html',
   styleUrl: './quiz-seite.component.css'
 })
