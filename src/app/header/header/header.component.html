@@ -1,36 +1,54 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Who’s that Pokémon?</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div class="header">
-      <img src="images/whos_that_pokemon_logo.jpg" alt="Pokémon Logo" class="logo" />
-      <h1 class="title">Who’s that Pokémon?</h1>
-    </div>
 
-    <mat-tab-group mat-stretch-tabs="true" mat-align-tabs="center" class="custom-tab-group">
-      <mat-tab label="Homepage">
-        <div class="welcomeMessage">
-          <h1>Willkommen bei</h1>
-          <h2>Guess the Pokémon!</h2>
-        </div>
-      </mat-tab>
+<head>
+  <meta charset="UTF-8" />
+  <title>Who’s that Pokémon?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
 
-      <mat-tab label="Quiz">
-        <div class="quiz-content">
-          <app-quiz-seite></app-quiz-seite>
-        </div>
-      </mat-tab>
+<body>
+  <div class="header">
+    <img src="images/whos_that_pokemon_logo.jpg" alt="Pokémon Logo" class="logo" />
+    <h1 class="title">Who’s that Pokémon?</h1>
+  </div>
 
-      <mat-tab label="Ranking">
-        <div class="ranking-content">
-          <h2>Rangliste</h2>
-          <!-- Hier könntest du eine Tabelle oder Liste anzeigen -->
-        </div>
-      </mat-tab>
-    </mat-tab-group>
-  </body>
+  <mat-tab-group mat-stretch-tabs="true" mat-align-tabs="center" class="custom-tab-group">
+    <mat-tab label="Homepage">
+      <div class="welcomeMessage">
+        <h1>Willkommen bei</h1>
+        <h2>Guess the Pokémon!</h2>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Quiz">
+      <div class="quiz-content">
+        <app-quiz-seite (quizBeendet)="onQuizBeendet($event)"></app-quiz-seite>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Ranking">
+      <div class="ranking-content">
+        <h2>Rangliste</h2>
+    <table class="ranking-table" style="align-items: center;">
+      <tr>
+        <th>Platz</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+        <th>Punkte</th>
+      </tr>
+      <tr *ngFor="let eintrag of ranking; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td></td>
+        <td>{{ eintrag.name }}</td>
+        <td></td>
+        <td>{{ eintrag.score }}</td>
+      </tr>
+    </table>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</body>
+
 </html>

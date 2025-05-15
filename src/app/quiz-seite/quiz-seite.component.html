@@ -1,4 +1,7 @@
 <div *ngIf="pokemonService.pokemon()" class="center-container">
+
+  <p>Punktestand: {{punktestand}}</p>
+
   <h1>Wie heißt das Pokémon?</h1>
 
   <img [src]="pokemonService.pokemon().sprites.front_default"> <!-- front_shiny für shiny variante -->

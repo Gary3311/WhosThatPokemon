@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, signal } from '@angular/core';
 import { PokemonService } from '../services/pokemon.service';
 import { NgFor, NgIf } from '@angular/common';
 
@@ -18,6 +18,9 @@ export class QuizSeiteComponent implements OnInit {
   antwortGegeben = false;
   istAntwortRichtig = false;
   richtigeAntwort = '';
+  punktestand = 0;
+  name = '';
+  @Output() quizBeendet = new EventEmitter<{ name: string, score: number }>();
 
 
   constructor(public pokemonService: PokemonService) { }
@@ -36,7 +39,7 @@ export class QuizSeiteComponent implements OnInit {
         await this.pokemonService.getPokemonName(id.toString());
         return this.pokemonService.pokemonNameDe(); // Zugriff auf das Signal
       }));
-      
+
       await this.pokemonService.getPokemonName(this.pokemonId.toString());
       this.richtigeAntwort = this.pokemonService.pokemonNameDe();
 
@@ -74,6 +77,14 @@ export class QuizSeiteComponent implements OnInit {
   antwortAuswaehlen(option: { name: string, istRichtig: boolean }): void {
     this.antwortGegeben = true;
     this.istAntwortRichtig = option.istRichtig;
+    if(option.istRichtig) {
+      this.punktestand++;
+    } else {
+      // Quiz beenden und Name abfragen
+      this.name = prompt('Bitte gib deinen Namen für die Rangliste ein:') || 'Anonym';
+      this.quizBeendet.emit({ name: this.name, score: this.punktestand });
+      this.punktestand = 0; // Reset für nächsten Durchgang
+    }
   }
 
   naechsteFrage(): void {
