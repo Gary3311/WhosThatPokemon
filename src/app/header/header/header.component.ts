@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { MatTabsModule} from '@angular/material/tabs'
+import { QuizSeiteComponent } from '../../quiz-seite/quiz-seite.component';
 
 @Component({
   selector: 'app-header',
-  imports: [MatTabsModule],
+  standalone: true,
+  imports: [MatTabsModule, QuizSeiteComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
