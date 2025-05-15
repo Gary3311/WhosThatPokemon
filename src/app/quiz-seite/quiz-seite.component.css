@@ -14,14 +14,14 @@
   }
   
   .button-container button {
-    width: 100%; /* Macht alle Buttons gleich breit */
+    width: 40%; /* Macht alle Buttons gleich breit */
     margin: 10px 0; /* Fügt einen Abstand zwischen den Buttons hinzu */
     padding: 15px; /* Optional: Vergrößert die Schaltflächen */
     font-size: 16px; /* Optional: Vergrößert die Schriftgröße der Buttons */
   }
 
   .center-container img {
-    width: 150px; /* Breite auf 300px setzen */
+    width: 200px; /* Breite auf 300px setzen */
     height: auto; /* Höhe wird automatisch angepasst, um das Seitenverhältnis zu bewahren */
   }
   

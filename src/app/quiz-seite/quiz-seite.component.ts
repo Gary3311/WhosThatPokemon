@@ -77,6 +77,7 @@ export class QuizSeiteComponent implements OnInit {
   }
 
   naechsteFrage(): void {
+    this.antwortGegeben = false;
     this.ladeNeueFrage();
   }
   shuffleArray(array: { name: string, istRichtig: boolean }[]): { name: string, istRichtig: boolean }[] {
