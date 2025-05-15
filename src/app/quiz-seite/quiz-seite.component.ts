@@ -16,7 +16,7 @@ export class QuizSeiteComponent implements OnInit {
   aktivePokemon = signal<any>(null);
   antwortMoeglichkeiten: { name: string, istRichtig: boolean }[] = [];
   antwortGegeben = false;
-  istAntwortRichtig = false;
+  istAntwortRichtig = true;
   richtigeAntwort = '';
   punktestand = 0;
   name = '';

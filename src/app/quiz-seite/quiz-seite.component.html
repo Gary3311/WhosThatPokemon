@@ -16,9 +16,18 @@
 
   <p *ngIf="antwortGegeben">
     {{ istAntwortRichtig ? 'Richtig!' : 'Falsch!' }}
+    <br />
+    Dies ist ein {{ richtigeAntwort }}.
   </p>
 
-  <button *ngIf="antwortGegeben" (click)="naechsteFrage()">
-    Nächste Frage
-  </button>
+  <div *ngIf="antwortGegeben">
+    <button *ngIf="istAntwortRichtig ; else restartBtn" (click)="naechsteFrage()">
+      Nächste Frage
+    </button>
+    <ng-template #restartBtn>
+      <button (click)="naechsteFrage()">
+        Neu starten
+      </button>
+    </ng-template>
+  </div>
 </div>
