@@ -14,6 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
 export class HeaderComponent {
   ranking: { name: string, score: number }[] = [];
 
+  // Diese Methode wird aufgerufen, wenn ein Quiz beendet wird. Sie fügt den Spieler zum Ranking hinzu und sortiert das Ranking.
   onQuizBeendet(event: { name: string, score: number }) {
     this.ranking.push(event);
     // Sortiere nach Score absteigend
@@ -21,10 +22,12 @@ export class HeaderComponent {
   }
   selectedTabIndex = 0;
 
+  //Tab-Index für die Tabs. Wenn der Tab gewechselt wird, wird der Index aktualisiert.
   onTabChanged(event: any) {
     this.selectedTabIndex = event.index;
   }
 
+  //Exportieren des Rankings als XML. Einfache Xml-Struktur.
   exportRankingAsXML() {
     let xml = '<?xml version="1.0" encoding="UTF-8"?>\n<ranking>\n';
     this.ranking.forEach((eintrag: any, i: number) => {

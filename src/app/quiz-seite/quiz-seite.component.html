@@ -4,8 +4,9 @@
 
   <h1>Wie heißt das Pokémon?</h1>
 
-  <img [src]="pokemonService.pokemon().sprites.front_default"> <!-- front_shiny für shiny variante -->
+  <img [src]="pokemonService.pokemon().sprites.front_default"> <!-- front_shiny für shiny variante, front_default für default -->
 
+  <!-- Generiert die Antwortmöglichkeiten aus den erhaltenen Daten-->
   <div class="button-container">
     <div *ngFor="let option of antwortMoeglichkeiten">
       <button mat-raised-button (click)="antwortAuswaehlen(option)" *ngIf="!antwortGegeben">
@@ -14,12 +15,15 @@
     </div>
   </div>
 
+  <!-- Wenn eine Antwort gegeben wurde, wird hier bewertet, ob diese richtig ist und entsprechend die Ausgaben angezeigt-->
   <p *ngIf="antwortGegeben">
     {{ istAntwortRichtig ? 'Richtig!' : 'Falsch!' }}
     <br />
     Dies ist ein {{ richtigeAntwort }}.
   </p>
 
+  <!-- Wenn eine Antwort gegeben wurde, wird hier der Button für die Nächste Frage entschieden.
+   Entwender "nächste Frage" oder "restart Game"-->
   <div *ngIf="antwortGegeben">
     <button mat-raised-button *ngIf="istAntwortRichtig ; else restartBtn" (click)="naechsteFrage()">
       Nächste Frage

@@ -13,6 +13,7 @@
     <h1 class="title">Who’s that Pokémon?</h1>
   </div>
 
+  <!-- Tab Group - Ermöglicht den Wechsel zwischen Startseite, Game und Ranking -->
   <mat-tab-group mat-stretch-tabs="true" mat-align-tabs="center" class="custom-tab-group" [(selectedIndex)]="selectedTabIndex"
   (selectedTabChange)="onTabChanged($event)">
     <mat-tab label="Homepage">
@@ -28,6 +29,7 @@
       </div>
     </mat-tab>
 
+    <!-- Tab für die Rangliste. Hier wird das Ranking dynamisch erstellt für diese Sitzung. -->
     <mat-tab label="Ranking">
       <div class="ranking-content">
         <h2>Rangliste</h2>

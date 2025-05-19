@@ -26,10 +26,14 @@ export class QuizSeiteComponent implements OnInit {
 
   constructor(public pokemonService: PokemonService) { }
 
+  //Generiert eine zufällige Pokémon-ID zwischen 1 und 150
+  // Die Pokemon bezeihen sich daher nur auf die erste Generation.
+  //Falls mehr Pokemon in den Topf sollen, muss die Zahl 150 erhöht werden.
   getRandomPokemonId(): number {
     return Math.floor(Math.random() * 150) + 1;
   }
 
+  // Diese Methode wird aufgerufen, um die drei Pokémon-Namen abzurufen, welche angezeigt werden.
   async getPokemonNamen(): Promise<void> {
     try {
       // Pokémon-IDs für die drei Namen auswählen
@@ -62,6 +66,7 @@ export class QuizSeiteComponent implements OnInit {
     await this.ladeNeueFrage();
   }
 
+  //Lädt eine neue Frage, indem ein neues Pokémon ausgewählt wird und die Namen abgerufen werden.
   async ladeNeueFrage(): Promise<void> {
     this.pokemonId = this.getRandomPokemonId();
     await this.pokemonService.getPokemon(this.pokemonId.toString());
@@ -75,6 +80,8 @@ export class QuizSeiteComponent implements OnInit {
     this.antwortGegeben = false;
   }
 
+  // Diese Methode wird aufgerufen, wenn der Spieler eine Antwort auswählt.
+  // Sie überprüft, ob die Antwort richtig ist und aktualisiert den Punktestand.
   antwortAuswaehlen(option: { name: string, istRichtig: boolean }): void {
     this.antwortGegeben = true;
     this.istAntwortRichtig = option.istRichtig;
@@ -88,10 +95,12 @@ export class QuizSeiteComponent implements OnInit {
     }
   }
 
+  // Diese Methode wird aufgerufen, um die nächste Frage zu laden.
   naechsteFrage(): void {
     this.antwortGegeben = false;
     this.ladeNeueFrage();
   }
+  // Shuffelt ein Array von Objekten, um die Antwortmöglichkeiten zufällig anzuzeigen.
   shuffleArray(array: { name: string, istRichtig: boolean }[]): { name: string, istRichtig: boolean }[] {
     return array
       .map(value => ({ value, sort: Math.random() })) // Zufallswert hinzufügen
