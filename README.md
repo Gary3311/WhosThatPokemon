@@ -13,7 +13,7 @@ you have the angular cli (at npm: @angular/cli) installed.
 
 With *ng serve* you start the application. 
 
-###Disclaimer
-This project has only german documentation 
+**Disclaimer**
+***This project has only german documentation 
 and is intended to be used by german speaking individuals.
-Sources are the official Angular wiki and some not named AI assistants.
+Sources are the official Angular wiki and some not named AI assistants.***
